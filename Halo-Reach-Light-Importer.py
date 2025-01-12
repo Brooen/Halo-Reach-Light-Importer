@@ -83,7 +83,7 @@ class VIEW3D_PT_halo_reach_light_importer(Panel):
     bl_idname = "VIEW3D_PT_halo_reach_light_importer"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
-    bl_category = "HR Lights"
+    bl_category = "Halo Lights"
 
     def draw(self, context):
         layout = self.layout
@@ -164,7 +164,7 @@ def read_binary_file(file_path, context):
         file.seek(4, 1)
 
         # Create a collection named after the file (minus extension)
-        collection_name = os.path.splitext(os.path.basename(file_path))[0]
+        collection_name = os.path.splitext(os.path.basename(file_path))[0] + "_lights"
         collection = bpy.data.collections.new(collection_name)
         context.scene.collection.children.link(collection)
 
